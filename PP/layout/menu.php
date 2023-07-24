@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -31,10 +31,10 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
+            <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin <sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -109,35 +109,43 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/products/index.php">
+                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/users/index.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Productos</span></a>
+                    <span>Usuarios</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/categories/index.php">
+                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/comentarios/index.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Categorias</span></a>
+                    <span>Comentarios</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/clients/index.php">
+                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/publicaciones/index.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Clientes</span></a>
+                    <span>Publicaciones</span></a>
             </li>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/universidad/index.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Universidad</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/estados/index.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Estados</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/municipios/index.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Municipios</span></a>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
-
-            <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
-
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
-
+            
         </ul>
         <!-- End of Sidebar -->
