@@ -34,7 +34,7 @@
             <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Admin <sup></sup></div>
+                <div class="sidebar-brand-text mx-3">Administracion<sup></sup></div>
             </a>
 
             <!-- Divider -->
@@ -76,7 +76,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Opciones
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -124,11 +124,6 @@
                     <span>Publicaciones</span></a>
             </li>
 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/universidad/index.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Universidad</span></a>
             </li>
 
             <li class="nav-item">

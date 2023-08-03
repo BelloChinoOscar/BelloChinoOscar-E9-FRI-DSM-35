@@ -9,7 +9,7 @@ include __DIR__ . '/../../layout/header.php';
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">VISTAS COMENTARIOS</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Agregar Comentario</a>
+        <a href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/registro3.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>Agregar Comentario</a>
     </div>
 
 

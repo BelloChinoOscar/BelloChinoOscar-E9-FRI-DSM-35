@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    ESTRUCRA DE MI PROYECTOS
-</body>
-</html>
+<?php
+$hola='localhost';
+$usuario='root';
+$contra='';
+$DB='chapultepec';
+
+
+$conexion=new mysqli($hola,$usuario,$contra,$DB);
+
+if($conexion->connect_errno){
+    die("fallo");
+}else{
+    echo("Se conecto");
+}
+
+
+?>

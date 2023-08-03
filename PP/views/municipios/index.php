@@ -9,7 +9,7 @@ include __DIR__ . '/../../layout/header.php';
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">VISTAS MUNICIPIOS</h1>
-        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/registroM.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Agregar Municipios</a>
     </div>
 
@@ -28,6 +28,7 @@ include __DIR__ . '/../../layout/header.php';
                                         <tr>
                                             <th>Id</th>
                                             <th>Nombre</th>
+                                            <th>Id_estado</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
