@@ -20,6 +20,11 @@
     <!-- Custom styles for this template-->
     <link href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/resource/css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/07bf2ec53c.js" crossorigin="anonymous"></script>
+
+    
+
+
+
 </head>
 
 <body id="page-top">

@@ -1,61 +1,93 @@
 <?php
+include("layout/menu.php");
+include("layout/header.php");
 include("database/conexion.php");
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Municipios</h1>
 
-    <title>Nuevo Registro</title>
-  </head>
-  <body>
+        <a href="views/Municipios/add.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        class="bi bi-plus-lg"></i>  Añadir  </a>
+    </div>
+    <style>
 
-    <h1>Registra Nuevo Municipio</h1>
+    /* Estilos para los botones */
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
 
-    <!-- INICIANDO 1er FORMULARIO -->
-    <div class="container card" style="width: 128rem; height: 20rem;">
-    <form method="POST">
-    <div class="row">
+    .btn-editar {
+      background-color: #008CBA;
+    }
+
+    .btn-vista {
+      background-color: #555555;
+    }
+
+    .btn-eliminar {
+      background-color: #f44336;
+    }
+  </style>
+   
+<body>
+  
+  <table id="myTable" class="display">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Municipios</th>
+        <th>Estado</th>
+        <th>Acciones</th>
         
-        <div class="col col-xs col-md">
-            <label for="Nombre">Nombre:</label>
-            <input required class="form-control" type="text" name="Nombre" placeholder="Name" id="Nombre">
-        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+      $que="SELECT * FROM municipio,estado WHERE municipio.id_estado=estado.Id";
+      $lis=mysqli_query($cone,$que);
 
-    </div>
+      while($c=mysqli_fetch_array($lis)){
+
+      ?>
+      <tr>
+        <td><?=$c['Id'] ?></td>
+        <td><?=$c['Nombre'] ?></td>
+        <td><?=$c['Nombre'] ?></td>
+        
+        <td>
+          <a href="views/municipios/edit.php?id=<?=$c['Id']; ?>"><button class="btn btn-editar"><i class="bi bi-pencil-fill"></i></button></a>
+          <a href="views/municipios/show.php?id=<?=$c['Id']; ?>"><button class="btn btn-vista"><i class="bi bi-binoculars-fill"></i></button></a>
+          <a href="views/municipios/delete.php?id=<?=$c['Id']; ?>"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
+        </td>
+      </tr>
+      <?php } ?>
+      <!-- Puedes agregar más filas aquí -->
+    </tbody>
+  </table>
+
+
+
     
-    <div class="row">
-        <div class="col">
-            <input class="btn btn-primary" type="submit">
-        </div>
-    </div>
-    </form>
-    </div>
-    
-    
+  
 
-    <!-- Optional JavaScript; choose one of the two! -->
+</div>
+<!-- /.container-fluid -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-  </body>
-  <?php
-
-  $nom=($_POST['Nombre']);
-  $es=($_POST['Estado']);
-
-  $quer="INSERT INTO municipio (Nombre,id_estado) values ('$nom','1')";
-
-  mysqli_query($conexion,$quer);
-
-  mysqli_close($conexion);
-
-  ?>
-</html>
+</div>
 <!-- End of Main Content -->
+<?php
+include("layout/footer.php");
+?>

@@ -48,6 +48,9 @@
 
     <!-- Custom scripts for all pages-->
     <script src="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/resource/js/sb-admin-2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Page level plugins -->
     <script src="./vendor/chart.js/Chart.min.js"></script>

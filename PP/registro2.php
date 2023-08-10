@@ -1,89 +1,105 @@
 <?php
+include("layout/menu.php");
+include("layout/header.php");
 include("database/conexion.php");
 ?>
 <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Page Content -->
+<script src="resource/js/alertarta.js"></script>
+<div class="container-fluid">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">NUEVO USUARIO</h1>
 
-    <title>Nuevo Registro</title>
-  </head>
-  <body>
-
-    <h1>Registrate</h1>
+        <a href="views/users/add.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        class="bi bi-person-fill-add"></i>  Añadir  </a>
+    </div>
 
     <!-- INICIANDO 1er FORMULARIO -->
-    <div class="container card" style="width: 128rem; height: 20rem;">
-    <form method="POST">
-    <div class="row">
+    <style>
+
+
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-editar {
+      background-color: #008CBA;
+    }
+
+    .btn-vista {
+      background-color: #555555;
+    }
+
+    .btn-eliminar {
+      background-color: #f44336;
+    }
+    a{
+      text-decoration: none;
+    }
+  </style>
         
-        <div class="col col-xs col-md">
-            <label for="Nombre">Nombre:</label>
-            <input required class="form-control" type="text" name="Nombre" placeholder="Name" id="Nombre">
-        </div>
-    
-        <div class="col col-xs col-md">
-        <label for="Contraseña">Contraseña:</label>
-        <input required class="form-control" type="text" name="Contraseña"  placeholder="*****" id="Contraseña">
-        </div>
+    <table  id="myTable" class="display" >
+    <thead align="center">
+      <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Contraseña</th>
+        <th>Correo</th>
+        <th>Tipo de usuario</th>
+        <th>Carrera</th>
+        <th>Cuatrimestre</th>
+        <th>Municipio</th>
+        <th>Operaciones</th>
+      </tr>
+    </thead>
+    <tbody align="center">
 
-        <div class="col col-xs col-md">
-            <label for="Correo">Correo:</label>
-            <input required class="form-control" type="text" name="Correo"  placeholder="@gmail.com" id="Correo">
-        </div>
-        <div class="col col-xs col-md">
-            <label for="Usuario">Usuario:</label>
-            <select class="form-select" name="Usuario" id="Usuario">
-            <option value="1">Alumno</option>
-            <option value="2">Maestro</option>
-        </select>        
-    </div>
+    <?php
+    $sql="SELECT usuario.Id ,usuario.Nombre ,usuario.Contraseña ,usuario.Correo ,usuario.id_usuario ,municipio.Nombre ,tipo_usuario.tipo_usua ,usuario.Avatar 
+          FROM usuario,tipo_usuario,municipio WHERE usuario.id_estado=municipio.Id AND usuario.id_tipo_usu=tipo_usuario.id_tipo_usu";
+    $r=mysqli_query($cone,$sql);
+    while($fila=mysqli_fetch_array($r)){
 
-        <div class="col col-xs col-md">
-        <label for="Estado">Estado:</label>
-        <select class="form-select" name="Estado" id="Estado">
-            <option value="1">1</option>
-            <option value="2">2</option>
-        </select>
-        </div>
-    
-        <div class="col col-xs col-md">
-        <label for="Carrera">Carrera:</label>
-        <select class="form-select" name="Carrera" id="Carrera">
-            <option value="1">DSM</option>
-            <option value="2">IRD</option>
-        </select>
-        </div>
+    ?>
+      <tr>
+        <td ><?=$fila['Id'] ?></td>
+        <td ><?=$fila['Nombre'] ?></td>
+        <td ><?=$fila['Contraseña'] ?></td>
+        <td ><?=$fila['Correo'] ?></td>
+        <td ><?=$fila['id_usuario'] ?></td>
+        <td ><?=$fila['Nombre'] ?></td>
+        <td ><?=$fila['tipo_usua'] ?></td>
+        <td><img src="resource/Images/<?=$fila['Avatar'];?>" width="50" height="70"></td>
+        <td>
+          <center>
+          <a href="views/users/edit.php?id=<?=$fila['id_usuario']?>"><button class="btn btn-editar"> <i class="bi bi-pencil-fill"></i></button></a>
+          <a href="views/users/show.php?id1=<?=$fila['id_usuario'] ?> " ><button class="btn btn-vista"><i class="bi bi-person-vcard-fill"></i></button></a>
+          <a href="views/users/drop.php?id2=<?=$fila['id_usuario'] ?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
+          </center>
+        </td>
+        
+      </tr>
+      <?php } ?>      
+      <!-- Puedes agregar más filas aquí -->
+    </tbody>
+  </table>
 
-        <div class="col col-xs col-md">
-        <label for="Cuatrimestre">Cuatrimestre:</label>
-        <select class="form-select" name="Cuatrimestre" id="Cuatrimestre">
-            <option value="1">1er</option>
-            <option value="2">2do</option>
-            <option value="3">3er</option>
-            <option value="4">4to</option>
-            <option value="5">5to</option>
-            <option value="6">6to</option>
-        </select>
-        </div>
-
-
-    </div>
-    
-    <div class="row">
-        <div class="col">
-            <input class="btn btn-primary" type="submit">
-        </div>
-    </div>
-    </form>
-    </div>
-    
-    
+  </div>
+<!-- /.container-fluid -->
+</div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -91,18 +107,8 @@ include("database/conexion.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   </body>
+
   <?php
-
-  $nom=($_POST['Nombre']);
-  $con=($_POST['Contraseña']);
-  $cor=($_POST['Correo']);
-
-  $que="INSERT INTO usuario (Nombre,Contraseña,Correo,id_usuario,id_carrera,id_cuatrimestre,id_municipio) values ('$nom','$con','$cor','1','1','1','1')";
-
-  mysqli_query($conexion,$que);
-
-  mysqli_close($conexion);
-
-  ?>
+include("layout/footer.php");
+?>
 </html>
-<!-- End of Main Content -->

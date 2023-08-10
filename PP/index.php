@@ -30,10 +30,11 @@ include("layout/header.php");
                                             <th>Nombre</th>
                                             <th>Contraseña</th>
                                             <th>Correo</th>
-                                            <th>Usuario</th>
-                                            <th>Id_carrera</th>
-                                            <th>Id_cuatrimestre</th>
-                                            <th>Id_estado</th>
+                                            <th>Tipo_Usuario</th>
+                                            <th>Carrera</th>
+                                            <th>Cuatrimestre</th>
+                                            <th>Estado</th>
+                                            <th>Operaciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>

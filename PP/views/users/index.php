@@ -26,14 +26,15 @@ include __DIR__ . '/../../layout/header.php';
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
+                                        <th>Id</th>
                                             <th>Nombre</th>
                                             <th>Contraseña</th>
                                             <th>Correo</th>
-                                            <th>Usuario</th>
-                                            <th>Id_carrera</th>
-                                            <th>Id_cuatrimestre</th>
-                                            <th>Id_estado</th>
+                                            <th>Tipo_Usuario</th>
+                                            <th>Carrera</th>
+                                            <th>Cuatrimestre</th>
+                                            <th>Estado</th>
+                                            <th>Operaciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>

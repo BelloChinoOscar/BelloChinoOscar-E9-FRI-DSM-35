@@ -1,67 +1,95 @@
 <?php
+include("layout/menu.php");
+include("layout/header.php");
 include("database/conexion.php");
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Comentarios</h1>
 
-    <title>Nuevo Registro</title>
-  </head>
-  <body>
+        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        class="bi bi-plus-lg"></i>  Añadir  </a>
+    </div>
 
-    <h1>Registrate</h1>
+    <style>
 
-    <!-- INICIANDO 1er FORMULARIO -->
-    <div class="container card" style="width: 128rem; height: 20rem;">
-    <form method="post" >
-    <div class="row">
+    /* Estilos para los botones */
+    .btn {
+      display: inline-block;
+      padding: 6px 12px;
+      text-align: center;
+      text-decoration: none;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .btn-editar {
+      background-color: #008CBA;
+    }
+
+    .btn-vista {
+      background-color: #555555;
+    }
+
+    .btn-eliminar {
+      background-color: #f44336;
+    }
+  </style>
+
+<body>
+  
+  <table id="myTable" class="display">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Usuario</th>
+        <th>Contenido</th>
+        <th>Publicacion</th>
+        <th>Acciones</th>
         
-        <div class="col col-xs col-md">
-            <label for="">Contenido</label>
-            <input required class="form-control" type="text" name="Contenido" placeholder="Name" id="Contenido">
-        </div>
+      </tr>
+    </thead>
+    <tbody>
+      <?php 
+      $xd="SELECT comentario.Id, usuario.id_usuario, comentario.ContenidoFecha, comentario.Publicacion FROM comentario, usuario WHERE comentario.Id=usuario.Id";
+      $que=mysqli_query($cone, $xd);
+      while($ila=mysqli_fetch_array($que)){
+      ?>
+      <tr>
+        <td><?php echo $ila['Id']; ?></td>
+        <td><?php echo $ila['id_usuario']; ?></td>
+        <td><?php echo $ila['ContenidoFecha']; ?></td>
+        <td><?php echo $ila['Publicacion']; ?></td>
+        <td>
+          <center>
+          <button class="btn btn-editar"><i class="bi bi-pencil-fill"></i></button>
+          <button class="btn btn-vista"><i class="bi bi-binoculars-fill"></i></button>
+          <button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button>
+          </center>
+        </td>
+      </tr>
+      <?php } ?>
+      <!-- Puedes agregar más filas aquí -->
+    </tbody>
+  </table>
 
-    </div>
     
-    <div class="row">
-        <div class="col">
-            <input class="btn btn-primary" type="submit">
-        </div>
-    </div>
-    </form>
-    </div>
     
-    
+  
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
+</div>
+<!-- /.container-fluid -->
 
 
-  </body>
-  <?php
-
-  $con=($_POST['Contenido']);
-
-  $quer="INSERT INTO comentarios (ContenidoFecha,Publicacion) values ('$con','1')";
-
-  mysqli_query($conexion,$quer);
-
-  mysqli_close($conexion);
-
-  ?>
-</html>
+</div>
 <!-- End of Main Content -->
+<?php
+include("layout/footer.php");
+?>
+
