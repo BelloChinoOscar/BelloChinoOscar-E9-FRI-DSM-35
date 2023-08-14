@@ -1,8 +1,11 @@
 <?php
 include("../../database/conexion.php");
+?>
+
+<?php
 
 $dina="SELECT Id,Nombre FROM estado ORDER BY Nombre ASC";
-$estado=mysqli_query($cone,$dina);
+$estado=mysqli_query($conexion,$dina);
 ?>
 
 <!DOCTYPE html>
@@ -64,11 +67,11 @@ $estado=mysqli_query($cone,$dina);
 </head>
 
 <body> 
-<a href="../../registro2.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i>   Regresar</button></a>
+<a href="../../users/registro2.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i>   Regresar</button></a>
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
-                <h1>Alta de usuarios</h1>
+                <h1>Nuevo usuario</h1>
             </div>
             <div class="mb-2">
                 
@@ -77,10 +80,7 @@ $estado=mysqli_query($cone,$dina);
                         <label for="nombre">Nombre:</label>
                         <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca su nombre" required ">
                     </div>
-                    <div class="mb-2">
-                        <label for="Usuario">Usuario:</label>
-                        <input type="text" class="form-control" name="Usuario" id="Usuario" placeholder="Introdusca su Usuario"required ">
-                    </div>
+                    
                     <div class="mb-2">
                         <label for="">Tipo de usuario</label>
                         <select class="form-select" name="tipo_usuario" id="tipo_usuario" required >
@@ -98,17 +98,12 @@ $estado=mysqli_query($cone,$dina);
                              <select class="form-select" name="cbx_estado" id="cbx_estado" required>
                                 <option value="0" selected disabled>Selecciona un estado</option>
                                 <?php while($row =$estado->fetch_assoc()){ ?>
-                                    <option value="<?php echo $row['id_estado']?>"> <?php echo $row['nombre'];?></option>
+                                    <option value="<?php echo $row['Id']?>"> <?php echo $row['Nombre'];?></option>
                                 <?php }  ?>
                              </select>
                          </div>
                          </div>
-                         <div class="col">
-                        <div class="mb-3">
-                             <label for="municipio" class="form-label">Municipio:</label>
-                             <select type="text" class="form-control" id="cbx_municipio" name="cbx_municipio" ></select>
-                        </div>
-                        </div>
+                         
                     </div>
                     <div class="mb-3">
                           <label for="correo" class="form-label">Correo electrónico:</label>
@@ -141,16 +136,14 @@ $estado=mysqli_query($cone,$dina);
 
      if (isset($_POST['registrar'])) {
 
-    $nombre = mysqli_real_escape_string($cone, $_POST['Nombre']);
-    $usuario = mysqli_real_escape_string($cone, $_POST['Usuario']);
-    $tipoU = mysqli_real_escape_string($cone, $_POST['tipo_usuario']);
-    $correo = mysqli_real_escape_string($cone, $_POST['Correo']);
-    $contra = mysqli_real_escape_string($cone, md5($_POST['Contraseña']));
-    $Rcontra = mysqli_real_escape_string($cone, md5($_POST['Rcontraseña']));
-    $municipio = mysqli_real_escape_string($cone, $_POST['cbx_municipio']);
+    $nombre = mysqli_real_escape_string($conexion, $_POST['Nombre']);
+    $tipoU = mysqli_real_escape_string($conexion, $_POST['tipo_usuario']);
+    $correo = mysqli_real_escape_string($conexion, $_POST['Correo']);
+    $contra = mysqli_real_escape_string($conexion, md5($_POST['Contraseña']));
+    $Rcontra = mysqli_real_escape_string($conexion, md5($_POST['Rcontraseña']));
 
-    $comprobarusuario = mysqli_num_rows(mysqli_query($cone, "SELECT usuario FROM usuario WHERE usuario = '$usuario'"));
-    $comprobaremail = mysqli_num_rows(mysqli_query($cone, "SELECT correo FROM usuario WHERE correo = '$correo'"));
+    $comprobarusuario = mysqli_num_rows(mysqli_query($conexion, "SELECT Nombre FROM usuario WHERE Nombre = '$nombre'"));
+    $comprobaremail = mysqli_num_rows(mysqli_query($conexion, "SELECT Correo FROM usuario WHERE Correo = '$correo'"));
 
     if ($comprobarusuario >= 1) { ?>
          <br>
@@ -176,8 +169,8 @@ $estado=mysqli_query($cone,$dina);
 
             <?php }else {
 
-                $registro = "INSERT INTO usuario (nombre, usuario, contraseña, correo, id_estado, id_tipo_usu, Avatar) VALUES ('$nombre', '$usuario', '$contra', '$correo', '$municipio', '$tipoU', 'Default.png')";
-                $r = mysqli_query($cone, $registro);
+                $registro = "INSERT INTO usuario (Nombre, Contraseña, Correo, id_usuario, id_carrera, id_cuatrimestre, id_municipio) VALUES ('$nombre',  '$contra', '$correo', '$tipoU', '1', '1', '1')";
+                $r = mysqli_query($conexion, $registro);
 
                 if ($r) { ?>
                     <br>
@@ -188,7 +181,7 @@ $estado=mysqli_query($cone,$dina);
 
                  <?php
                  ?>
-                 <meta http-equiv="refresh" content="2;../../indexusuarios.php">
+                 <meta http-equiv="refresh" content="2;../../registro2.php">
 
                  <?php
                  

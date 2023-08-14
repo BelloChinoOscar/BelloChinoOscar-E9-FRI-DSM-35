@@ -5,6 +5,7 @@ include("database/conexion.php");
 ?>
 <script src="resource/js/alertarta.js"></script>
 <!-- Begin Page Content -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -30,18 +31,19 @@ include("database/conexion.php");
     }
 
     .btn-editar {
-      background-color: #008CBA;
+      background-color:blueviolet;
     }
 
     .btn-vista {
-      background-color: #555555;
+      background-color:darkcyan;
     }
 
     .btn-eliminar {
-      background-color: #f44336;
+      background-color:gold;
     }
   </style>
     
+    <div class="container card" style="width: 110rem; height: 25rem;">
   <table id="myTable" class="display">
     <thead>
       <tr>
@@ -51,11 +53,12 @@ include("database/conexion.php");
         
       </tr>
     </thead>
+  </div>
     <tbody>
       
       <?php
       $sql= "SELECT * from estado";
-      $mostar=mysqli_query($cone,$sql);
+      $mostar=mysqli_query($conexion,$sql);
 
       while($most=mysqli_fetch_array($mostar)){
 
@@ -66,11 +69,9 @@ include("database/conexion.php");
         <td><?=$most['Nombre']?></td>
         
         <td>
-          <center>
-          <a href="views/sstados/edit.php?id=<?=$most['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-fill"></i></button></a>
-          <a href="views/estados/show.php?id=<?=$most['Id']?>"><button class="btn btn-vista"><i class="bi bi-binoculars-fill"></i></button></a>
+          <a href="views/sstados/edit.php?id=<?=$most['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
+          <a href="views/estados/show.php?id=<?=$most['Id']?>"><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
           <a href="views/estados/delete.php?id=<?=$most['Id']?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
-          </center>
         </td>
       </tr>
       <?php } ?>

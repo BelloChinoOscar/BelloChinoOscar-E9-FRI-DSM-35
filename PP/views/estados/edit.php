@@ -50,12 +50,12 @@ include("../../database/conexion.php");
 <?php
 $xd=$_GET['id'];
 
-$sq="SELECT id_estado,nombre FROM estado WHERE id_estado=$xd";
-$a=mysqli_query($cone,$sq);
+$sq="SELECT Id,Nombre FROM estado WHERE Id=$xd";
+$a=mysqli_query($conexion,$sq);
 if($a){
     if($fila=mysqli_fetch_array($a)){
-        $id_est=$fila['id_estado'];
-        $nom=$fila["nombre"];
+        $id_est=$fila['Id'];
+        $nom=$fila["Nombre"];
     }
 }
 
@@ -63,7 +63,7 @@ if($a){
 ?>
 
 <body> 
-<a href="../../Estados.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i></button></a>
+<a href="../../registroE.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i></button></a>
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
@@ -73,8 +73,8 @@ if($a){
                 
                 <form method="post" >
                     <div class="mb-2">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introdusca su nombre" required value="<?php echo $nom; ?>">
+                        <label for="Nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca su nombre" required value="<?php echo $nom; ?>">
                     </div>
                     </div>
                      <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">Actualizar</button></center>
@@ -93,9 +93,9 @@ if($a){
 
      if (isset($_POST['registrar'])) {
 
-    $nombre = mysqli_real_escape_string($cone, $_POST['nombre']);
+    $nombre = mysqli_real_escape_string($conexion, $_POST['Nombre']);
 
-    $comporbarestado= mysqli_num_rows(mysqli_query($cone, "SELECT nombre FROM estado WHERE nombre = '$nombre'"));
+    $comporbarestado= mysqli_num_rows(mysqli_query($conexion, "SELECT Nombre FROM estado WHERE Nombre = '$nombre'"));
 
     if($comporbarestado>=1){ ?>
     <br>
@@ -106,7 +106,7 @@ if($a){
 
     <?php }else{  ?> <?php
     
-            $registro = "UPDATE estado SET(nombre=$nombre') WHERE id_estado='$id_est'";
+            $registro = "UPDATE estado SET(Nombre=$nombre') WHERE Id='$id_est'";
             $r = mysqli_query($cone, $registro);
         if($r){ ?>
         <br>
@@ -117,7 +117,7 @@ if($a){
 
                <?php
                  ?>
-                 <meta http-equiv="refresh" content="2;../../Estados.php">
+                 <meta http-equiv="refresh" content="2;../../Registro2.php">
 
                  <?php
         }

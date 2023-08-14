@@ -2,7 +2,7 @@
 include("../../database/conexion.php");
 
 $dina="SELECT Id,Nombre FROM estado ORDER BY Nombre ASC";
-$estado=mysqli_query($cone,$dina);
+$estado=mysqli_query($conexion,$dina);
 ?>
 
 <!DOCTYPE html>
@@ -52,18 +52,18 @@ $estado=mysqli_query($cone,$dina);
 </head>
 
 <body> 
-<a href="../../municipios.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i></button></a>
+<a href="../../municipios/resgistroM.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i></button></a>
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
-                <h1>Alta de municipio</h1>
+                <h1>Nuevo municipio</h1>
             </div>
             <div class="mb-2">
                 
                 <form method="post" >
                     <div class="mb-2">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introdusca el nombre del municipio" required ">
+                        <label for="Nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca el nombre del municipio" required ">
                     </div>
 
                         <!--aqui va la primera consulta dinamica con Sql-->
@@ -75,7 +75,7 @@ $estado=mysqli_query($cone,$dina);
                              <select class="form-select" name="cbx_estado" id="cbx_estado" required>
                                 <option value="0" selected disabled>Selecciona un estado</option>
                                 <?php while($row =$estado->fetch_assoc()){ ?>
-                                    <option value="<?php echo $row['id_estado']?>"> <?php echo $row['nombre'];?></option>
+                                    <option value="<?php echo $row['Id']?>"> <?php echo $row['Nombre'];?></option>
                                 <?php }  ?>
                              </select>
                          </div>
@@ -94,21 +94,22 @@ $estado=mysqli_query($cone,$dina);
 <?php
 if (isset($_POST['registrar'])) {
 
-    $nombre = mysqli_real_escape_string($cone, $_POST['nombre']);
-    $estado = mysqli_real_escape_string($cone, $_POST['cbx_estado']);
 
-    $comprobarnombre = mysqli_num_rows(mysqli_query($cone, "SELECT nombreM FROM municipio WHERE nombreM = '$nombre'"));
+    $nombre = mysqli_real_escape_string($conexion, $_POST['Nombre']);
+    $estado = mysqli_real_escape_string($conexion, $_POST['cbx_estado']);
+
+    $comprobarnombre = mysqli_num_rows(mysqli_query($conexion, "SELECT Nombre FROM municipio WHERE Nombre = '$nombre'"));
     if($comprobarnombre>=1){ ?>
     <br>
         <div class="alert alert-danger alert-dismissible">
            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 El nombre esta repetido elija otro nombre
         </div>
-
+        
    <?php 
    }else {
-    $registro = "INSERT INTO Municipio (nombreM, IdEstado) VALUES ('$nombre', '$estado')";
-                $r = mysqli_query($cone, $registro);
+    $registro = "INSERT INTO municipio (Id, Nombre, id_estado) VALUES ('', '$nombre', '$estado')";
+                $r = mysqli_query($conexion, $registro);
 
                 if ($r) { ?>
                     <br>
@@ -119,7 +120,7 @@ if (isset($_POST['registrar'])) {
 
                  <?php
                  ?>
-                 <meta http-equiv="refresh" content="2;../../Municipios.php">
+                 <meta http-equiv="refresh" content="0;../../registroM.php">
 
                  <?php
                  

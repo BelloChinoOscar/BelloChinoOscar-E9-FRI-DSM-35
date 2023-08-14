@@ -4,7 +4,7 @@ include("../../layout/menu.php");
 include("../../layout/header.php");
 
 $dina="SELECT Id,Nombre FROM estado ORDER BY Nombre ASC";
-$estado=mysqli_query($cone,$dina);
+$estado=mysqli_query($conexion,$dina);
 ?>
 
 
@@ -31,18 +31,18 @@ $estado=mysqli_query($cone,$dina);
 <?php
 $xd=$_GET['id'];
 
-$sq="SELECT Id,Nombre,usuario,Contraseña,Correo,id_estado,id_tipo_usu,Avatar FROM usuario WHERE Id=$xd";
-$a=mysqli_query($cone,$sq);
+$sq="SELECT Id,Nombre,Contraseña,Correo,id_usuario,id_carrera,id_cuatrimestre,id_municipio FROM usuario WHERE Id=$xd";
+$a=mysqli_query($conexion,$sq);
 if($a){
     if($fila=mysqli_fetch_array($a)){
-        $id=$fila['id_usuario'];
-        $nom=$fila["nombre"];
-        $usu=$fila["usuario"];
-        $con=$fila["contraseña"];
-        $correo=$fila["correo"];
-        $muni=$fila["id_estado"];
-        $tipous=$fila["id_tipo_usu"];
-        $ava=$fila["Avatar"];
+        $id=$fila['Id'];
+        $nom=$fila["Nombre"];
+        $usu=$fila["Contraseña"];
+        $con=$fila["Correo"];
+        $correo=$fila["id_usuario"];
+        $muni=$fila["id_carrera"];
+        $tipous=$fila["id_cuatrimestre"];
+        $ava=$fila["id_municipio"];
 
     }
 }
@@ -52,7 +52,7 @@ if($a){
 ?>
 
 <body> 
-<a href="indexusuarios.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i> Regresar</button></a>
+<a href="resgistro2.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i> Regresar</button></a>
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
@@ -62,11 +62,11 @@ if($a){
                 
                 <form method="post" enctype="multipart/form-data">
                     <div class="mb-2">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introdusca su nombre" required value="<?php echo $nom?>" >
+                        <label for="Nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca su nombre" required value="<?php echo $nom?>" >
                     </div>
                     <div class="mb-2">
-                        <label for="Usuario">Usuario:</label>
+                        <label for="Usuario">Contraseña:</label>
                         <input type="text" class="form-control" name="Usuario" id="Usuario" placeholder="Introdusca su Usuario"required value="<?php echo $usu?>">
                     </div>
                     <div class="mb-2">

@@ -8,9 +8,9 @@ include __DIR__ . '/../../layout/header.php';
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">VISTAS USUARIOS</h1>
+        <h1 class="h3 mb-0 text-gray-800">VISTAS PUBLICACIONES</h1>
         <a href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/registro2.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                class="fas fa-plus fa-sm text-white-50"></i> Agregar Usuario</a>
+                class="fas fa-plus fa-sm text-white-50"></i> Agregar Publicacion</a>
     </div>
 
 
@@ -19,22 +19,22 @@ include __DIR__ . '/../../layout/header.php';
     <div class="row col">
     <div class="card shadow">
                         <div class="card-header">
-                            <h6 class="m-0 font-weight-bold text-primary">Lista de Usuarios</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Lista de Publicaciones</h6>
                         </div>
     <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                        <th>Id</th>
-                                            <th>Nombre</th>
-                                            <th>Contraseña</th>
-                                            <th>Correo</th>
-                                            <th>Tipo_Usuario</th>
-                                            <th>Carrera</th>
-                                            <th>Cuatrimestre</th>
-                                            <th>Estado</th>
-                                            <th>Operaciones</th>
+                                            <th>Id</th>
+                                            <th>Id_usuario</th>
+                                            <th>Fecha</th>
+                                            <th>Contenido</th>
+                                            <th>Imagen</th>
+                                            <th>Album</th>
+                                            <th>Id_comentario</th>
+                                            <th>Likes</th>
+                                            <th>Id_materia</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -44,6 +44,8 @@ include __DIR__ . '/../../layout/header.php';
                                 </table>
                             </div>
                         </div>
+
+                        
 
     
     </div>

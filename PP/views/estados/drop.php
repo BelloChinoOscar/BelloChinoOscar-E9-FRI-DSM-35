@@ -7,9 +7,9 @@
 include("../../database/conexion.php");
 
 $eli=$_GET['id2']; 
-$sentencia = $conexion->query("DELETE * FROM usuario WHERE Id='$eli'");
+$sentencia = $conexion->query("DELETE * FROM usuario WHERE id_usuario='$eli'");
 
 ?>
 
-<meta http-equiv="refresh" content="0;registro2.php">
+<meta http-equiv="refresh" content="0;../../users/registro2.php">
 </html>

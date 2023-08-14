@@ -2,7 +2,7 @@
 include("../../database/conexion.php");
 
 $dina="SELECT Id,Nombre FROM estado ORDER BY Nombre ASC";
-$estado=mysqli_query($cone,$dina);
+$estado=mysqli_query($conexion,$dina);
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +54,7 @@ $estado=mysqli_query($cone,$dina);
 $xd=$_GET['id'];
 
 $sq="SELECT Id,Nombre,id_estado FROM municipio WHERE Id='$xd'";
-$a=mysqli_query($cone,$sq);
+$a=mysqli_query($conexion,$sq);
 if($a){
     if($fila=mysqli_fetch_array($a)){
         $id=$fila['Id'];
@@ -65,7 +65,7 @@ if($a){
 ?>
 
 <body> 
-<a href="../../municipios.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i></button></a>
+<a href="../../municipios/registroM.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i></button></a>
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
@@ -107,8 +107,8 @@ if($a){
 <?php
 if (isset($_POST['registrar'])) {
 
-    $nombre = mysqli_real_escape_string($cone, $_POST['nombre']);
-    $estado = mysqli_real_escape_string($cone, $_POST['cbx_estado']);
+    $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
+    $estado = mysqli_real_escape_string($conexion, $_POST['cbx_estado']);
 
     $comprobarnombre = mysqli_num_rows(mysqli_query($cone, "SELECT nombreM FROM municipio WHERE nombreM = '$nombre'"));
     if($comprobarnombre>=1){ ?>
@@ -121,7 +121,7 @@ if (isset($_POST['registrar'])) {
    <?php 
    }else {
     $registro = "UPDATE Municipio SET(NombreM=$nombre',IdEstado='$estado') WHERE ID_municipio='$id'";
-                $r = mysqli_query($cone, $registro);
+                $r = mysqli_query($conexion, $registro);
 
                 if ($r) { ?>
                     <br>
@@ -132,7 +132,7 @@ if (isset($_POST['registrar'])) {
 
                  <?php
                  ?>
-                 <meta http-equiv="refresh" content="2;../../Municipios.php">
+                 <meta http-equiv="refresh" content="2;../../municipios/registroM.php">
 
                  <?php
                  

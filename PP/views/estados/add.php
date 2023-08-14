@@ -49,18 +49,18 @@ include("../../database/conexion.php");
 </head>
 
 <body> 
-<a href="../../estados.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i></button></a>
+<a href="../../registroE.php"><button button class="btn btn-eliminar"><i class="bi bi-arrow-return-left"></i></button></a>
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
-                <h1>Alta de estado</h1>
+                <h1>Nuevo estado</h1>
             </div>
             <div class="mb-2">
                 
                 <form method="post" >
                     <div class="mb-2">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="nombre" id="nombre" placeholder="Introdusca su nombre" required ">
+                        <label for="Nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca su nombre" required ">
                     </div>
                     </div>
                      <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">agregar</button></center>
@@ -79,9 +79,9 @@ include("../../database/conexion.php");
 
      if (isset($_POST['registrar'])) {
 
-    $nombre = mysqli_real_escape_string($cone, $_POST['nombre']);
+    $nombre = mysqli_real_escape_string($conexion, $_POST['Nombre']);
 
-    $comporbarestado= mysqli_num_rows(mysqli_query($cone, "SELECT Nombre FROM estado WHERE Nombre = '$nombre'"));
+    $comporbarestado= mysqli_num_rows(mysqli_query($conexion, "SELECT Nombre FROM estado WHERE Nombre = '$nombre'"));
 
     if($comporbarestado>=1){ ?>
     <br>
@@ -92,8 +92,8 @@ include("../../database/conexion.php");
 
     <?php }else{  ?> <?php
     
-            $registro = "INSERT INTO estado (nombre) VALUES ('$nombre')";
-            $r = mysqli_query($cone, $registro);
+            $registro = "INSERT INTO estado (Nombre) VALUES ('$nombre')";
+            $r = mysqli_query($conexion, $registro);
         if($r){ ?>
         <br>
             <div class="alert alert-success alert-dismissible">
@@ -103,7 +103,7 @@ include("../../database/conexion.php");
 
                <?php
                  ?>
-                 <meta http-equiv="refresh" content="2;../../estados.php">
+                 <meta http-equiv="refresh" content="2;../../resgistroE.php">
 
                  <?php
         }

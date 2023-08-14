@@ -18,7 +18,7 @@
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/resource/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="resource/css/sb-admin-2.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/07bf2ec53c.js" crossorigin="anonymous"></script>
 
     
@@ -47,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/">
+                <a class="nav-link" href="../PP">
                 <i class="fa-sharp fa-solid fa-house"></i>
                     <span>Inicio</span></a>
             </li>
@@ -114,17 +114,13 @@
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/users/index.php">
+                <a class="nav-link" href="registro2.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Usuarios</span></a>
             </li>
+            
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/comentarios/index.php">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Comentarios</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/publicaciones/index.php">
+                <a class="nav-link" href="registroP.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Publicaciones</span></a>
             </li>
@@ -132,13 +128,13 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/estados/index.php">
+                <a class="nav-link" href="resgistroE.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Estados</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/views/municipios/index.php">
+                <a class="nav-link" href="registroM.php">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Municipios</span></a>
             </li>

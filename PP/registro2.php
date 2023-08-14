@@ -7,6 +7,7 @@ include("database/conexion.php");
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Begin Page Content -->
 <script src="resource/js/alertarta.js"></script>
 <div class="container-fluid">
@@ -36,18 +37,15 @@ include("database/conexion.php");
     }
 
     .btn-editar {
-      background-color: #008CBA;
+      background-color:blueviolet;
     }
 
     .btn-vista {
-      background-color: #555555;
+      background-color:darkcyan;
     }
 
     .btn-eliminar {
-      background-color: #f44336;
-    }
-    a{
-      text-decoration: none;
+      background-color:gold;
     }
   </style>
         
@@ -68,9 +66,8 @@ include("database/conexion.php");
     <tbody align="center">
 
     <?php
-    $sql="SELECT usuario.Id ,usuario.Nombre ,usuario.Contraseña ,usuario.Correo ,usuario.id_usuario ,municipio.Nombre ,tipo_usuario.tipo_usua ,usuario.Avatar 
-          FROM usuario,tipo_usuario,municipio WHERE usuario.id_estado=municipio.Id AND usuario.id_tipo_usu=tipo_usuario.id_tipo_usu";
-    $r=mysqli_query($cone,$sql);
+    $sql="SELECT usuario.Id, usuario.Nombre, usuario.Contraseña, usuario.Correo, usuario.id_usuario, usuario.id_carrera, usuario.id_cuatrimestre, usuario.id_municipio, municipio.Nombre, tipo_usuario.tipo_usua, carrera.Nombre, cuatrimestre.Nombre FROM usuario,tipo_usuario,municipio,carrera,cuatrimestre WHERE usuario.id_municipio=municipio.Id AND usuario.id_usuario=tipo_usuario.Id AND usuario.id_carrera=carrera.Id AND usuario.id_cuatrimestre=cuatrimestre.Id";
+    $r = mysqli_query($conexion,$sql);
     while($fila=mysqli_fetch_array($r)){
 
     ?>
@@ -80,15 +77,13 @@ include("database/conexion.php");
         <td ><?=$fila['Contraseña'] ?></td>
         <td ><?=$fila['Correo'] ?></td>
         <td ><?=$fila['id_usuario'] ?></td>
-        <td ><?=$fila['Nombre'] ?></td>
-        <td ><?=$fila['tipo_usua'] ?></td>
-        <td><img src="resource/Images/<?=$fila['Avatar'];?>" width="50" height="70"></td>
+        <td ><?=$fila['id_carrera'] ?></td>
+        <td ><?=$fila['id_cuatrimestre'] ?></td>
+        <td><?=$fila['id_municipio'] ?></td>
         <td>
-          <center>
-          <a href="views/users/edit.php?id=<?=$fila['id_usuario']?>"><button class="btn btn-editar"> <i class="bi bi-pencil-fill"></i></button></a>
-          <a href="views/users/show.php?id1=<?=$fila['id_usuario'] ?> " ><button class="btn btn-vista"><i class="bi bi-person-vcard-fill"></i></button></a>
-          <a href="views/users/drop.php?id2=<?=$fila['id_usuario'] ?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
-          </center>
+          <a href="edit.php?id=<?=$fila['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
+          <a href="show.php?id1=<?=$fila['Id'] ?> " ><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
+          <a href="drop.php?id2=<?=$fila['Id'] ?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-file-earmark-x"></i></button></a>
         </td>
         
       </tr>
