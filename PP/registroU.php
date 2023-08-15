@@ -3,15 +3,16 @@ include("layout/menu.php");
 include("layout/header.php");
 include("database/conexion.php");
 ?>
+<script src="resource/js/alertarta.js"></script>
 <!-- Begin Page Content -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 <div class="container-fluid">
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Municipios</h1>
+        <h1 class="h3 mb-0 text-gray-800">Universidad</h1>
 
-        <a href="views/municipios/add.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="views/universidad/add.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
         class="bi bi-plus-lg"></i>  Añadir  </a>
     </div>
     <style>
@@ -41,50 +42,42 @@ include("database/conexion.php");
       background-color:gold;
     }
   </style>
-   
-<body>
-  
-<div class="container card" style="width: 110rem; height: 50rem;">
+    
+    <div class="container card" style="width: 110rem; height: 25rem;">
   <table id="myTable" class="display">
     <thead>
       <tr>
-        <th>Id</th>
-        <th>Municipios</th>
-        <th>Estado</th>
+        <th>Id</th> 
+        <th>Nombre</th>
         <th>Acciones</th>
         
       </tr>
     </thead>
   </div>
     <tbody>
-      <?php 
-      $que="SELECT municipio.Id, municipio.Nombre, municipio.id_estado, estado.Id FROM municipio, estado WHERE municipio.id_estado=estado.Id";
-      $lis=mysqli_query($conexion,$que);
+      
+      <?php
+      $sql= "SELECT * from universidad";
+      $mostar=mysqli_query($conexion,$sql);
 
-      while($c=mysqli_fetch_array($lis)){
+      while($most=mysqli_fetch_array($mostar)){
 
-      ?>
+      ?>      
+    
       <tr>
-        <td><?=$c['Id'] ?></td>
-        <td><?=$c['Nombre'] ?></td>
-        <td><?=$c['id_estado'] ?></td>
+        <td><?=$most['Id']?></td>
+        <td><?=$most['Nombre']?></td>
         
         <td>
-          <a href="views/municipios/edit.php?id=<?=$c['Id']; ?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
-          <a href="views/municipios/show.php?id=<?=$c['Id']; ?>"><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
-          <a href="views/municipios/delete.php?id=<?=$c['Id']; ?>"><button class="btn btn-eliminar"><i class="bi bi-file-earmark-x"></i></button></a>
+          <a href="views/universidad/edit.php?id=<?=$most['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
+          <a href="views/universidad/show.php?id=<?=$most['Id']?>"><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
+          <a href="views/universidad/delete.php?id=<?=$most['Id']?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
         </td>
       </tr>
       <?php } ?>
       <!-- Puedes agregar más filas aquí -->
     </tbody>
   </table>
-
-
-
-    
-  
-
 </div>
 <!-- /.container-fluid -->
 

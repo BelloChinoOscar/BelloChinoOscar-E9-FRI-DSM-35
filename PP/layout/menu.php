@@ -128,15 +128,39 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="resgistroE.php">
+                <a class="nav-link" href="resgistroTU.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Estados</span></a>
+                    <span>Tipos de usuarios</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="registroM.php">
+                <a class="nav-link" href="registroCUA.php">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Municipios</span></a>
+                    <span>Cuatrimestre</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="registroCA.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Carrera</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="registroMA.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Materias</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="registroU.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Universidades</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="registroC.php">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Comentarios</span></a>
             </li>
 
 

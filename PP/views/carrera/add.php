@@ -2,9 +2,6 @@
 include("../../layout/menu.php");
 include("../../layout/header.php");
 include("../../database/conexion.php");
-
-$dina="SELECT Id,Nombre FROM estado ORDER BY Nombre ASC";
-$estado=mysqli_query($conexion,$dina);
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +9,7 @@ $estado=mysqli_query($conexion,$dina);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agregar Usuario</title>
+    <title>Agregar Estado</title>
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -27,19 +24,6 @@ $estado=mysqli_query($conexion,$dina);
     <!--se agrega el jquery para el dinamismo en etsados y municipios-->
     <script languaje="javaescript" src="../../resource/js/jquery-3.7.0.min.js"> </script>
 
-    <!--se agrega la funcionanlidad al estado y municipio-->
-    <script languaje="javascript">
-        $(document).ready(function(){
-            $("#cbx_estado").change(function(){
-                $("#cbx_estado option:selected").each(function(){
-                    id_estado =$(this).val();
-                    $.post("../../resource/Jquery/getMunicipio.php",{id_estado:id_estado},function(data){
-                        $("#cbx_municipio").html(data);
-                    });
-                });      
-            })
-        });
-    </script>
      <style>
         .btn {
       display: inline-block;
@@ -69,29 +53,17 @@ $estado=mysqli_query($conexion,$dina);
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
-                <h1>Nueva Publicacion</h1>
+                <h1>Nueva Carrera</h1>
             </div>
             <div class="mb-2">
                 
                 <form method="post" >
                     <div class="mb-2">
-                        <label for="fecha">Fecha:</label>
-                        <input type="date" class="form-control" name="Fecha" id="Fecha" placeholder="Introdusca la fecha" required ">
+                        <label for="Nombre">Nombre:</label>
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introduzca su nombre" required ">
                     </div>
-                    
-                    <div class="mb-2">
-                        <label for="Contenido">Contenido:</label>
-                        <input type="text" class="form-control" name="Contenido" id="Contenido" placeholder="Crea tu contenido" required ">
-
-
-                        <!--aqui va la primera consulta dinamica con Sql-->
                     </div>
-                    <div class="mb-2">
-                        <label for="Imagen">Imagen:</label>
-                        <input type="text" class="form-control" name="Imagen" id="Imagen" placeholder="Introduce la url" required ">
-                    </div>
-                    
-                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">Registrarse</button></center>
+                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">agregar</button></center>
 
                 </form>
 
@@ -107,40 +79,39 @@ $estado=mysqli_query($conexion,$dina);
 include("../../layout/footer.php");
 ?>
 </body>
+<?php
 
+     if (isset($_POST['registrar'])) {
 
-   <?php
+    $nombre = mysqli_real_escape_string($conexion, $_POST['Nombre']);
 
-     if (isset($_POST['registrar'])) 
-     {
+    $comporbarestado= mysqli_num_rows(mysqli_query($conexion, "SELECT Nombre FROM carrera WHERE Nombre = '$nombre'"));
+
+    if($comporbarestado>=1){ ?>
+    <br>
+               <div class="alert alert-danger alert-dismissible">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Nombre de carrera repetido
+               </div>
+
+    <?php }else{  ?> <?php
     
-    $nombre = mysqli_real_escape_string($conexion, $_POST['Fecha']);
-    $tipoU = mysqli_real_escape_string($conexion, $_POST['Contenido']);
-    $correo = mysqli_real_escape_string($conexion, $_POST['Imagen']);
-     ?>
-                   
-                   <?php 
+            $registro = "INSERT INTO carrera (Nombre) VALUES ('$nombre')";
+            $r = mysqli_query($conexion, $registro);
+        if($r){ ?>
+        <br>
+            <div class="alert alert-success alert-dismissible">
+                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                           Felicidades ya se agrego
+            </div>
 
-                $registro = "INSERT INTO publicacion (Id, id_usua, Fecha, Contenido, Imagen) VALUES ('', '1', '$nombre', '$tipoU', '$correo')";
-                $r = mysqli_query($conexion, $registro);
-
-                if ($r) { ?>
-                    <br>
-                   <div class="alert alert-success alert-dismissible">
-                             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                                Felicidades, nueva publicacion
-                    </div>
-
-                 <?php
+               <?php
                  ?>
-                 <meta http-equiv="refresh" content="2;../../registroP.php">
+                 <meta http-equiv="refresh" content="0;../../registroCA.php">
 
                  <?php
-                 
-
-                 
-
-                } 
-            }
-
-?>
+        }
+    }
+}
+  ?>  
+</html>

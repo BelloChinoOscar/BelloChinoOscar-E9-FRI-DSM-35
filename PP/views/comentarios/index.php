@@ -9,7 +9,7 @@ include __DIR__ . '/../../layout/header.php';
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">VISTAS PUBLICACIONES</h1>
-        <a href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/registroM.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="http://localhost/BelloChinoOscar-E9-FRI-DSM-35/PP/registroP.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
                 class="fas fa-plus fa-sm text-white-50"></i> Agregar Publicacion</a>
     </div>
 
@@ -26,15 +26,13 @@ include __DIR__ . '/../../layout/header.php';
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Id</th>
-                                            <th>Id_usuario</th>
-                                            <th>Fecha</th>
-                                            <th>Contenido</th>
-                                            <th>Imagen</th>
-                                            <th>Album</th>
-                                            <th>Id_comentario</th>
-                                            <th>Likes</th>
-                                            <th>Id_materia</th>
+                                        <th>Id</th>
+                                        <th>Usuario</th>
+                                         <th>Fecha</th>
+                                         <th>Contenido</th>
+                                         <th>Imagen</th>
+                                         <th>Comentario</th>
+                                         <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>

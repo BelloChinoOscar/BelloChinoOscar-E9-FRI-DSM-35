@@ -10,9 +10,9 @@ include("database/conexion.php");
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Estados</h1>
+        <h1 class="h3 mb-0 text-gray-800">Carrera</h1>
 
-        <a href="views/estados/add.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+        <a href="views/carrera/add.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
         class="bi bi-plus-lg"></i>  Añadir  </a>
     </div>
     <style>
@@ -48,7 +48,7 @@ include("database/conexion.php");
     <thead>
       <tr>
         <th>Id</th> 
-        <th>Estados</th>
+        <th>Nombre</th>
         <th>Acciones</th>
         
       </tr>
@@ -57,7 +57,7 @@ include("database/conexion.php");
     <tbody>
       
       <?php
-      $sql= "SELECT * from estado";
+      $sql= "SELECT * from carrera";
       $mostar=mysqli_query($conexion,$sql);
 
       while($most=mysqli_fetch_array($mostar)){
