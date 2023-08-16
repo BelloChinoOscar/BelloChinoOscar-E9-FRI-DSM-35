@@ -23,7 +23,11 @@ include("../../database/conexion.php");
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <!--se agrega el jquery para el dinamismo en etsados y municipios-->
     <script languaje="javaescript" src="../../resource/js/jquery-3.7.0.min.js"> </script>
+    <a href="../../registroCUA.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="bi bi-arrow-return-left"></i> Regresar  </a>
 
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Cuatrimestres </h1>
+   </div>
     <style>
 
     /* Estilos para los botones */
@@ -55,13 +59,16 @@ include("../../database/conexion.php");
 </head>
 
 <body>
+
     
     <div class="container card" style="width: 110rem; height: 25rem;">
-  <table id="myTable" class="display">
+    <table id="myTable" class="display">
     <thead>
       <tr>
         <th>Id</th> 
-        <th>Nombre</th>        
+        <th>Nombre</th>
+        <th>Acciones</th>
+        
       </tr>
     </thead>
   </div>
@@ -82,10 +89,7 @@ include("../../database/conexion.php");
 
       ?>      
     
-      <tr>
-        <td><?=$most['Id']?></td>
-        <td><?=$most['Nombre']?></td>
-      </tr>
+     
       <?php } ?>
       <!-- Puedes agregar más filas aquí -->
     </tbody>

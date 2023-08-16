@@ -69,6 +69,8 @@ $estado=mysqli_query($conexion,$dina);
 </head>
 
 <body> 
+<a href="../../registro2.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="bi bi-arrow-return-left"></i> Regresar  </a>
+
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">

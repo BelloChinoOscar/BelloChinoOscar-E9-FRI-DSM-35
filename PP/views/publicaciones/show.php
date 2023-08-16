@@ -23,11 +23,13 @@ include("../../database/conexion.php");
     <!--se agrega el jquery para el dinamismo en etsados y municipios-->
     <script languaje="javaescript" src="../../resource/js/jquery-3.7.0.min.js"> </script>
     <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Tipo de Usuarios</h1>
+    <a href="../../registroP.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="bi bi-arrow-return-left"></i> Regresar  </a>
 
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Publicaciones </h1>
+   </div>
         
-    </div>
+
     <style>
 
     /* Estilos para los botones */
@@ -57,14 +59,18 @@ include("../../database/conexion.php");
   </style>
   </head>
   <body>
+
     
     <div class="container card" style="width: 110rem; height: 25rem;">
-  <table id="myTable" class="display">
+    <table id="myTable" class="display">
     <thead>
       <tr>
-        <th>Id</th> 
-        <th>Tipo de usuario</th>
-        
+        <th>Id</th>
+        <th>Usuario</th>
+        <th>Fecha</th>
+        <th>Contenido</th>
+        <th>Imagen</th>
+        <th>Acciones</th>        
       </tr>
     </thead>
   </div>
@@ -78,11 +84,7 @@ include("../../database/conexion.php");
 
       ?>      
     
-      <tr>
-        <td><?=$most['Id']?></td>
-        <td><?=$most['tipo_usua']?></td>
-        
-      </tr>
+      
       <?php } ?>
       <!-- Puedes agregar más filas aquí -->
     </tbody>

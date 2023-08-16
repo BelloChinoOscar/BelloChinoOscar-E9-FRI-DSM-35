@@ -74,6 +74,7 @@ if($a){
 ?>
 
 <body> 
+<a href="../../registro2.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="bi bi-arrow-return-left"></i> Regresar  </a>
     <section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
@@ -112,17 +113,9 @@ if($a){
                              </select>
                          </div>
                          </div>
-                         <div class="col">
-                        <div class="mb-3">
-                             <label for="municipio" class="form-label">Municipio:</label>
-                             <select type="text" class="form-control" id="cbx_municipio" name="cbx_municipio" ></select>
-                        </div>
-                        </div>
+                         
                     </div>
-                    <div class="mb-3">
-                          <label for="correo" class="form-label">Avatar:</label>
-                          <input type="file" class="form-control" id="avatar" name="avatar" placeholder="Introduzca su correo"  required value="<?php echo $correo?>">
-                    </div>
+                   
                     <div class="mb-3">
                           <label for="correo" class="form-label">Correo electrónico:</label>
                           <input type="email" class="form-control" id="correo" name="correo" placeholder="Introduzca su correo"  required value="<?php echo $correo?>">

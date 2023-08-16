@@ -64,20 +64,31 @@ if($a){
 ?>
 
 <body> 
-    <section class="d-flex justify-content-center">
+<a href="../../registroC.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="bi bi-arrow-return-left"></i> Regresar  </a>
+
+<section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
-                <h1>Editar comentarios</h1>
+                <h1>Editar comentario</h1>
             </div>
             <div class="mb-2">
                 
-                <form method="post" >
+           
+            <form method="post" >
+
                     <div class="mb-2">
-                        <label for="Nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca su nombre" required value="<?php echo $nom; ?>">
+                        <label for="ContenidoFecha">Contenido:</label>
+                        <input type="text" class="form-control" name="ContenidoFecha" id="ContenidoFecha" placeholder="Crea tu contenido" required ">
+
+
+                        <!--aqui va la primera consulta dinamica con Sql-->
                     </div>
+                    <div class="mb-2">
+                        <label for="Publicacion">Publicacion:</label>
+                        <input type="text" class="form-control" name="Publicacion" id="Publicacion" placeholder="Introduce el nombre de la publicacion" required ">
                     </div>
-                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">Actualizar</button></center>
+                    
+                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">Registrar</button></center>
 
                 </form>
 

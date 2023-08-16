@@ -64,20 +64,22 @@ if($a){
 ?>
 
 <body> 
-    <section class="d-flex justify-content-center">
+<a href="../../registroMA.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="bi bi-arrow-return-left"></i> Regresar  </a>
+
+<section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
-                <h1>Editar materia</h1>
+                <h1>Editar Materia</h1>
             </div>
             <div class="mb-2">
                 
                 <form method="post" >
                     <div class="mb-2">
                         <label for="Nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca su nombre" required value="<?php echo $nom; ?>">
+                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introduzca su nombre" required ">
                     </div>
                     </div>
-                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">Actualizar</button></center>
+                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">agregar</button></center>
 
                 </form>
 
@@ -85,6 +87,7 @@ if($a){
         </div>
         
     </section>
+    
     
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>

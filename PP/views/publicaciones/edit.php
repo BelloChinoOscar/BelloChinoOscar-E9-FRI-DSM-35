@@ -64,20 +64,34 @@ if($a){
 ?>
 
 <body> 
-    <section class="d-flex justify-content-center">
+<a href="../../registroP.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="bi bi-arrow-return-left"></i> Regresar  </a>
+
+<section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
-                <h1>Editar publicacion</h1>
+                <h1>Editar Publicacion</h1>
             </div>
             <div class="mb-2">
                 
                 <form method="post" >
                     <div class="mb-2">
-                        <label for="Nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca su nombre" required value="<?php echo $nom; ?>">
+                        <label for="fecha">Fecha:</label>
+                        <input type="date" class="form-control" name="Fecha" id="Fecha" placeholder="Introdusca la fecha" required ">
                     </div>
+                    
+                    <div class="mb-2">
+                        <label for="Contenido">Contenido:</label>
+                        <input type="text" class="form-control" name="Contenido" id="Contenido" placeholder="Crea tu contenido" required ">
+
+
+                        <!--aqui va la primera consulta dinamica con Sql-->
                     </div>
-                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">Actualizar</button></center>
+                    <div class="mb-2">
+                        <label for="Imagen">Imagen:</label>
+                        <input type="text" class="form-control" name="Imagen" id="Imagen" placeholder="Introduce la url" required ">
+                    </div>
+                    
+                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">Registrarse</button></center>
 
                 </form>
 

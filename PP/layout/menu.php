@@ -47,7 +47,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index">
+                <a class="nav-link" href="index.php">
                 <i class="fa-sharp fa-solid fa-house"></i>
                     <span>Inicio</span></a>
             </li>

@@ -64,7 +64,9 @@ if($a){
 ?>
 
 <body> 
-    <section class="d-flex justify-content-center">
+<a href="../../resgistroTU.php" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="bi bi-arrow-return-left"></i> Regresar  </a>
+
+<section class="d-flex justify-content-center">
         <div class="card col-sm-6 p-3">
             <div class="mb-3">
                 <h1>Editar tipo de usuario</h1>
@@ -73,11 +75,11 @@ if($a){
                 
                 <form method="post" >
                     <div class="mb-2">
-                        <label for="Nombre">Nombre:</label>
-                        <input type="text" class="form-control" name="Nombre" id="Nombre" placeholder="Introdusca su nombre" required value="<?php echo $nom; ?>">
+                        <label for="tipo_usua">Nombre:</label>
+                        <input type="text" class="form-control" name="tipo_usua" id="tipo_usua" placeholder="Introdusca su nombre" required ">
                     </div>
                     </div>
-                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">Actualizar</button></center>
+                     <center><button type="submit" class="btn btn-primary" name="registrar" id="registrar">agregar</button></center>
 
                 </form>
 
