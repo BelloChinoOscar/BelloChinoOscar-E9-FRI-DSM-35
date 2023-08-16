@@ -71,7 +71,7 @@ include("database/conexion.php");
         <td>
           <a href="views/materia/edit.php?id=<?=$most['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
           <a href="views/materia/show.php?id=<?=$most['Id']?>"><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
-          <a href="views/materia/delete.php?id=<?=$most['Id']?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
+          <a href="views/materia/drop.php?id=<?=$most['Id']?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
         </td>
       </tr>
       <?php } ?>

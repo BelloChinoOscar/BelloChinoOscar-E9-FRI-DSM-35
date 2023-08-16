@@ -6,10 +6,10 @@
 <?php
 include("../../database/conexion.php");
 
-$eli=$_GET['id2']; 
-$sentencia = $conexion->query("DELETE * FROM usuario WHERE id_usuario='$eli'");
+$eli=$_GET['id3']; 
+$sentencia = $conexion->query("DELETE * FROM publicacion WHERE Id='$eli'");
 
 ?>
 
-<meta http-equiv="refresh" content="0;../../users/registro2.php">
+<meta http-equiv="refresh" content="0;../../publicaciones/registroP.php">
 </html>

@@ -81,9 +81,9 @@ include("database/conexion.php");
         <td ><?=$fila['id_cuatrimestre'] ?></td>
         <td><?=$fila['id_municipio'] ?></td>
         <td>
-          <a href="edit.php?id=<?=$fila['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
-          <a href="show.php?id1=<?=$fila['Id'] ?> " ><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
-          <a href="drop.php?id2=<?=$fila['Id'] ?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-file-earmark-x"></i></button></a>
+          <a href="views/users/edit.php?id=<?=$fila['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
+          <a href="views/users/show.php?id1=<?=$fila['Id'] ?> " ><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
+          <a href="views/users/drop.php?id2=<?=$fila['Id'] ?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-file-earmark-x"></i></button></a>
         </td>
         
       </tr>

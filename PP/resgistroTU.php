@@ -69,9 +69,9 @@ include("database/conexion.php");
         <td><?=$most['tipo_usua']?></td>
         
         <td>
-          <a href="views/sstados/edit.php?id=<?=$most['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
-          <a href="views/estados/show.php?id=<?=$most['Id']?>"><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
-          <a href="views/estados/delete.php?id=<?=$most['Id']?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
+          <a href="views/t_usuario/edit.php?id=<?=$most['Id']?>"><button class="btn btn-editar"><i class="bi bi-pencil-square"></i></button></a>
+          <a href="views/t_usuario/show.php?id=<?=$most['Id']?>"><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
+          <a href="views/t_usuario/drop.php?id=<?=$most['Id']?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
         </td>
       </tr>
       <?php } ?>

@@ -3,6 +3,9 @@ include("layout/menu.php");
 include("layout/header.php");
 include("database/conexion.php");
 ?>
+
+<script src="resource/js/alertarta.js"></script>
+
 <!-- Begin Page Content -->
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
@@ -71,9 +74,9 @@ include("database/conexion.php");
         <td><?=$ila['Imagen']; ?></td>
         <td>
           <center>
-          <a href="views/users/edit.php?id=<?=$ila['Id']?>"><button class="btn btn-editar"> <i class="bi bi-pencil-square"></i></button></a>
-          <a href="views/users/show.php?id1=<?=$ila['Id'] ?>"><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
-          <a href="views/users/drop.php?id2=<?=$ila['Id'] ?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
+          <a href="views/publicaciones/edit.php?id=<?=$ila['Id']?>"><button class="btn btn-editar"> <i class="bi bi-pencil-square"></i></button></a>
+          <a href="views/publicaciones/show.php?id=<?=$ila['Id']?>"><button class="btn btn-vista"><i class="bi bi-postcard-fill"></i></button></a>
+          <a href="views/publicaciones/drop.php?id3=<?=$ila['Id']?>" onclick="return confirmar()"><button class="btn btn-eliminar"><i class="bi bi-trash3-fill"></i></button></a>
       </center>
         </td>
       </tr>

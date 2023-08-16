@@ -3,6 +3,9 @@ include("layout/menu.php");
 include("layout/header.php");
 include("database/conexion.php");
 ?>
+
+<script src="resource/js/alertarta.js"></script>
+
 <!-- Begin Page Content -->
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
